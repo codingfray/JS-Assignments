@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+    ages.sort();
+    let arrLen = ages.length;
+    console.log(`The the new sorted array is [${ages}]`);
+
+    console.log(`The minimum age is ${ages[0]}`);
+    console.log(`The maximium age is ${ages[arrLen - 1]}`);
+
+    if (arrLen % 2 === 0) {
+        let firstMid = ages[arrLen / 2 - 1];
+        console.log(firstMid);
+
+        let secMid = ages[arrLen / 2];
+        console.log(secMid);
+
+        let median = (firstMid + secMid) / 2;
+        console.log(`The Median of the set of ages is ${median}`);
+
+
+    } else {
+        console.log(ages[Math.floor(arrLen / 2)]);
+
+    }
+    let sum = 0;
+    for (let i = 0; i < ages.length; i++) {
+        sum += ages[i];
+
+    }
+    let average = sum / 2;
+    console.log(`The average of all the ages is ${average}`);
+
+
+    let range = Number(ages[arrLen - 1]) - Number(ages[0]);
+    console.log(`The range of the value of ages is ${range}`);
+
+    let minVal = Number(ages[0]) - average;
+    let maxVal = Number(ages[arrLen - 1]) - average;
+
+    console.log(`The Minimumm - Average value is ${minVal}`);
+    console.log(`The Maximum - Average value is ${maxVal}`);
+
+
+</script>
