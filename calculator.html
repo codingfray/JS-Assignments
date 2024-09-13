@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: lightgreen;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+
+            /* width: 100%; */
+        }
+
+        .calc-body {
+            width: 500px;
+            height: 200px;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .inputs {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .inputs input {
+            width: 50%;
+        }
+
+        .inputs input:focus {
+            outline: none;
+        }
+
+        .operators {
+            width: 100%;
+            background-color: whitesmoke;
+            height: 80%;
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .operate {
+            display: flex;
+            flex-direction: column;
+            width: 20%;
+            justify-content: space-between;
+        }
+
+        .operate button {
+            width: 100%;
+        }
+
+        .result {
+            width: 80%;
+            height: 100%;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calc-body">
+        <div class="inputs">
+            <input type="number" name="" id="firstNumber">
+            <input type="number" name="" id="secondNumber">
+        </div>
+
+        <div class="operators">
+            <div class="operate">
+                <button id="plus" onclick="operate('+')">+</button>
+                <button onclick="operate('-')">-</button>
+                <button onclick="operate('/')">/</button>
+                <button onclick="operate('*')">*</button>
+                <button onclick="operate('%')">%</button>
+                <button onclick="operate('**')">**</button>
+            </div>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+
+
+    console.log(firstNumber);
+    console.log(result);
+
+    function operate(sign) {
+        let firstNumber = document.getElementById('firstNumber').value;
+        let secondNumber = document.getElementById('secondNumber').value;
+        let result = document.getElementById('result')
+
+
+        if (sign === '+') {
+            result.innerHTML = Number(firstNumber) + Number(secondNumber)
+            console.log(result);
+
+        } else if (sign === '-') {
+            result.innerHTML = Number(firstNumber) - Number(secondNumber)
+            console.log(result);
+        } else if (sign === '/') {
+            result.innerHTML = Number(firstNumber) / Number(secondNumber)
+            console.log(result);
+        } else if (sign === '*') {
+            result.innerHTML = Number(firstNumber) * Number(secondNumber)
+            console.log(result);
+        } else if (sign === '%') {
+            result.innerHTML = Number(firstNumber) % Number(secondNumber)
+            console.log(result);
+        } else {
+            result.innerHTML = Number(firstNumber) ** Number(secondNumber)
+            console.log(result);
+        }
+    }
+</script>

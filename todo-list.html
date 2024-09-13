@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+</head>
+
+<body>
+    <input type="text" name="" id="toDo">
+    <button onclick="addTodo()">add todo</button>
+    <div id="list"></div>
+</body>
+
+</html>
+<script>
+
+    function addTodo() {
+        let toDo = document.getElementById('toDo').value
+        let list = document.getElementById('list')
+        // console.log(toDo);
+        const pTag = document.createElement('p')
+        pTag.textContent = `${toDo}`
+        const delBtn = document.createElement('button')
+        delBtn.textContent = 'Delete'
+
+        delBtn.onclick = function () {
+            pTag.remove()
+            delBtn.remove()
+        }
+        list.appendChild(pTag)
+        list.appendChild(delBtn)
+        // console.log(toDo);
+
+    }
+</script>

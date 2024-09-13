@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+</head>
+
+<body>
+    <input type="number" id="firstNum">
+    <input type="number" id="secNum">
+    <button onclick="generate()">Generate</button>
+    <p id="result"></p>
+</body>
+
+</html>
+<script>
+    function generate() {
+        let firstNum = Number(document.getElementById('firstNum').value)
+        let sectNum = Number(document.getElementById('secNum').value)
+        let multTab = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        let result = document.getElementById('result')
+
+        console.log(firstNum);
+        console.log(sectNum);
+
+
+
+        if (firstNum > sectNum) {
+            console.log('First number cannot be greater than second number');
+            result.innerHTML = 'First number cannot be greater than second number'
+        } else {
+            for (let i = firstNum; i <= sectNum; i++) {
+                for (const j of multTab) {
+                    let multTable = i * j
+                    console.log(`${i}x${j}=${multTable}`);
+                    const pTag = document.createElement('p')
+                    pTag.textContent = `${i}x${j}=${multTable}`
+
+                    result.appendChild(pTag)
+                }
+                // result.innerHTML = `${i}x${j}=${multTable}`
+
+                // for (let j = 0; j < multTab.length; j++) {
+                //     let multTable = i * j;
+                //     console.log(`${i}x${j}=${multTable}`);
+
+                // }
+            }
+
+        }
+
+    }
+
+
+
+
+    // for (const element of multTab) {
+    //     let multTable = firstNum
+    // }
+</script>
