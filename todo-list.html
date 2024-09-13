@@ -20,16 +20,16 @@
         let toDo = document.getElementById('toDo').value
         let list = document.getElementById('list')
         // console.log(toDo);
-        const pTag = document.createElement('p')
-        pTag.textContent = `${toDo}`
+        const spanTag = document.createElement('span')
+        spanTag.textContent = `${toDo} `
         const delBtn = document.createElement('button')
         delBtn.textContent = 'Delete'
 
         delBtn.onclick = function () {
-            pTag.remove()
+            spanTag.remove()
             delBtn.remove()
         }
-        list.appendChild(pTag)
+        list.appendChild(spanTag)
         list.appendChild(delBtn)
         // console.log(toDo);
 
