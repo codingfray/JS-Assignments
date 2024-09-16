@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>How many days are in each month? Lets find out!</h1>
+    <h2>Input a month below to find out how many days are in each month. Let's go!</h2>
+    <input type="text" placeholder="input the month here..." id="month">
+    <button onclick="monthCounter()">Generate</button>
+    <div id="result"></div>
+</body>
+
+</html>
+<script>
+    function monthCounter() {
+        let month = document.getElementById('month').value
+        let monthUnified = month.toLowerCase()
+        let result = document.getElementById('result')
+
+        if (monthUnified === '') {
+            result.innerHTML = `<p>Your input cannot be empty</p>`
+            return
+        }
+
+        if (monthUnified === 'september' || monthUnified === 'april' || monthUnified === 'june' || monthUnified === 'november') {
+            result.innerHTML = `<p>${month} has 30 days in it</p>`
+            console.log(`${month} has 30 days in it`);
+
+        } else if (monthUnified === 'february') {
+            result.innerHTML = `<p>${month} has 28 days in it(29 in each leap year ;))</p>`
+        } else if (monthUnified === 'januaury' || monthUnified === 'march' || monthUnified === 'may' || monthUnified === 'july' || monthUnified === 'august' || monthUnified === 'october' || monthUnified === 'december') {
+            result.innerHTML = `<p>${month} has 31 days in it</p>`
+        } else
+            result.innerHTML = `<p>This is not a month, please input correct values</p>`
+        // result.innerHTML = ''
+    }
+</script>
