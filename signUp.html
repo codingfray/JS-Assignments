@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .container {
+            background-color: pink;
+            width: 500px;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            margin: 10% 0 0 0;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        form input {
+            border-radius: 10px;
+            border: none;
+            height: 30px;
+        }
+
+        form button {
+            border: none;
+            width: 20%;
+            outline: 1px solid rgb(197, 150, 158);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: rgb(211, 211, 211);
+        }
+
+        .tAC {
+            display: flex;
+        }
+
+        .checkbox {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <center class="container">
+        <h1>Sing In</h1>
+        <form action="#">
+            <input type="text" name="userName" placeholder="Enter your username here..." id="userName">
+            <input type="email" name="EmailAddress" id="mail" placeholder="Enter your gmail here...">
+            <input type="password" name="password" placeholder="password" id="password">
+            <input type="password" name="password" placeholder="confirm password" id="confirmPassword">
+            <div class="tAC">
+                <input type="checkbox" name="termsAndConditionCheckbox" class="checkbox" id="checkbox"><span>By clicking
+                    this, you agree
+                    to
+                    the
+                    <a href="#">terms and conditions</a> and can continue unto the site</span>
+            </div>
+            <button onclick="signIn()">Sign In</button>
+        </form>
+    </center>
+</body>
+
+</html>
+<script>
+    let dataBase = []
+    let userName = document.getElementById('userName')
+    let mail = document.getElementById('mail')
+    let password = document.getElementById('password')
+    let confirmPassword = document.getElementById('confirmPassword')
+    let checkbox = document.getElementById('checkbox')
+    function signIn() {
+        if (userName.value.trim() === '' || password.value.trim() === '' || confirmPassword.value.trim() === '') {
+            alert('All fields must be filled')
+            // return;
+        } else if (mail.value.endsWith('@gmail.com') === false) {
+            alert('Enter a valid gmail address')
+            // return;
+        } else if (password.value != confirmPassword.value || password.value.length < 6) {
+            alert('Your password is less than six digits or does not match. Please try again')
+            // return;
+        } else if (checkbox.checked) {
+            alert('Thank you for signing up. Click the ok button to continue')
+        } else {
+            alert('Please agree to the term and conditions before continuing')
+        }
+
+        let record = { userName: userName.value, emailAddress: mail.value, password: password.value, confirmPassword: confirmPassword.value }
+        dataBase.push(record)
+        record = JSON.stringify()
+        localStorage.setItem('session', dataBase)
+        console.log(dataBase);
+    }
+</script>
